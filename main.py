@@ -42,11 +42,42 @@ def main():
     print(f"b:{b}")
 
 
+def compute_model(x,w,b):
+
+    """computes the prediction of a linear model
+    args:   x(ndarray(m,)): m examples
+            w,b scalar: model parameters
+            Returns
+            y(ndarray(m,)):target values"""
+    m = x.shape[0]
+    f_wb = np.zeros(m)
+    for i in range(m):
+        f_wb[i] = w * x[i] + b
+    return f_wb
+
+    tmp_f_wb = compute_model(x, w, b,)
+    #plot our model prediction
+    plt.plot(x,tmp_f_wb,c='b',label= 'our prediction')
+
+    #plot the data points
+    plt.scatter(x,y, marker='x',c='r',label='Actual values')
+
+    #set the title
+    plt.title("housing prices")
+    #Set the y-axis
+    plt.ylabel('price(in 1000s of dollors')
+    #Set the x-axis
+    plt.xlabel('size(1000 sqft')
+    plt.legend()
+    plt.show()
+
 
 
 
 if __name__ == '__main__':
     main()
+
+
 
 
 
